@@ -502,7 +502,7 @@ iran_server_configuration() {
 
     # Security Token
     echo -ne "[-] Security Token (press enter to use default value): "
-    read -r token
+    token="Tunnel"
     token="${token:-your_token}"
 
 
@@ -578,7 +578,7 @@ iran_server_configuration() {
 	local web_port=""
 	while true; do
 	    echo -ne "[-] Enter Web Port (default 0 to disable): "
-	    web_port=5000
+	    web_port=5001
 	    
         if [[ -z "$web_port" ]]; then
             web_port=0
