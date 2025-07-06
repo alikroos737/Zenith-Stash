@@ -12,7 +12,7 @@ fi
 
 # just press key to continue
 press_key(){
- read -p "Press any key to continue..."
+ read -p "Press any key to continue...."
 }
 
 # Define a function to colorize text
