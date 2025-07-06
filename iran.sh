@@ -299,7 +299,7 @@ iran_server_configuration() {
 
     while true; do
         echo -ne "[*] Tunnel port: "
-        tunnel_port=906
+        tunnel_port=888
 
         if [[ "$tunnel_port" =~ ^[0-9]+$ ]] && [ "$tunnel_port" -gt 22 ] && [ "$tunnel_port" -le 65535 ]; then
             if check_port "$tunnel_port" "tcp"; then
