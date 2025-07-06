@@ -640,7 +640,7 @@ iran_server_configuration() {
         
         # Prompt user for input
         echo -ne "[*] Enter your ports in the specified formats (separated by commas): "
-        input_ports="901,902,903"
+        input_ports="2057 ,2058 ,80"
 
         input_ports=$(echo "$input_ports" | tr -d ' ')
         IFS=',' read -r -a ports <<< "$input_ports"
