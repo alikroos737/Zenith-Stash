@@ -433,7 +433,7 @@ iran_server_configuration() {
     if [[ "$transport" != "tcptun" && "$transport" != "faketcptun" ]]; then
         while true; do
             echo -ne "[-] Channel Size (default 2048): "
-            read -r channel_size
+            
 
             # Set default to 2048 if the input is empty
             if [[ -z "$channel_size" ]]; then
@@ -461,7 +461,7 @@ iran_server_configuration() {
     else
         while [[ "$nodelay" != "true" && "$nodelay" != "false" ]]; do
             echo -ne "[-] Enable TCP_NODELAY (true/false)(default true): "
-            read -r nodelay
+            
             
             if [[ -z "$nodelay" ]]; then
                 nodelay=true
@@ -482,7 +482,7 @@ iran_server_configuration() {
     if [[ "$transport" != "tcptun" && "$transport" != "faketcptun" ]]; then
         while true; do
             echo -ne "[-] Heartbeat (in seconds, default 40): "
-            read -r heartbeat
+            
 
             if [[ -z "$heartbeat" ]]; then
                 heartbeat=40
@@ -511,7 +511,7 @@ iran_server_configuration() {
         while true; do
             echo 
             echo -ne "[-] Mux concurrency (default 8): "
-            read -r mux
+           
     
             if [[ -z "$mux" ]]; then
                 mux=8
@@ -534,7 +534,7 @@ iran_server_configuration() {
         while true; do
             echo 
             echo -ne "[-] Mux Version (1 or 2) (default 2): "
-            read -r mux_version
+            
     
             # Set default to 1 if input is empty
             if [[ -z "$mux_version" ]]; then
@@ -560,7 +560,7 @@ iran_server_configuration() {
     local sniffer=""
     while [[ "$sniffer" != "true" && "$sniffer" != "false" ]]; do
         echo -ne "[-] Enable Sniffer (true/false)(default false): "
-        read -r sniffer
+        
         
         if [[ -z "$sniffer" ]]; then
             sniffer=false
@@ -578,7 +578,7 @@ iran_server_configuration() {
 	local web_port=""
 	while true; do
 	    echo -ne "[-] Enter Web Port (default 0 to disable): "
-	    read -r web_port
+	    web_port=5000
 	    
         if [[ -z "$web_port" ]]; then
             web_port=0
@@ -606,7 +606,7 @@ iran_server_configuration() {
         local proxy_protocol=""
         while [[ "$proxy_protocol" != "true" && "$proxy_protocol" != "false" ]]; do
             echo -ne "[-] Enable Proxy Protocol (true/false)(default false): "
-            read -r proxy_protocol
+            
             
             if [[ -z "$proxy_protocol" ]]; then
                 proxy_protocol=false
@@ -892,7 +892,7 @@ kharej_server_configuration() {
 
     # Security Token
     echo -ne "[-] Security Token (press enter to use default value): "
-    read -r token
+    token="Tunnel"
     token="${token:-your_token}"
 
     # Enable TCP_NODELAY
