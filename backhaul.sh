@@ -267,7 +267,7 @@ configure_tunnel() {
 # check if the Backhaul-core installed or not
 if [[ ! -d "$config_dir" ]]; then
     echo -e "\n${RED}Backhaul-Core directory not found. Install it first through 'Install Backhaul core' option.${NC}\n"
-    
+    read -p "Press Enter to continue..."
     return 1
 fi
 
@@ -277,13 +277,14 @@ fi
     colorize green "1) Configure for IRAN server" bold
     colorize magenta "2) Configure for KHAREJ server" bold
     echo
-     configure_choice=1
+    read -p "Enter your choice: " configure_choice
     case "$configure_choice" in
         1) iran_server_configuration ;;
         2) kharej_server_configuration ;;
         *) echo -e "${RED}Invalid option!${NC}" && sleep 1 ;;
     esac
     echo
+    read -p "Press Enter to continue..."
 }
 
 #Global Variables
