@@ -299,7 +299,7 @@ iran_server_configuration() {
 
     while true; do
         echo -ne "[*] Tunnel port: "
-        tunnel_port=906
+        tunnel_port=888
 
         if [[ "$tunnel_port" =~ ^[0-9]+$ ]] && [ "$tunnel_port" -gt 22 ] && [ "$tunnel_port" -le 65535 ]; then
             if check_port "$tunnel_port" "tcp"; then
@@ -578,7 +578,7 @@ iran_server_configuration() {
 	local web_port=""
 	while true; do
 	    echo -ne "[-] Enter Web Port (default 0 to disable): "
-	    web_port=6002
+	    web_port=602
 	    
         if [[ -z "$web_port" ]]; then
             web_port=0
@@ -767,7 +767,7 @@ kharej_server_configuration() {
     # Read the tunnel port
     while true; do
         echo -ne "[*] Tunnel port: "
-        tunnel_port=906
+        tunnel_port=888
 
         if [[ "$tunnel_port" =~ ^[0-9]+$ ]] && [ "$tunnel_port" -gt 22 ] && [ "$tunnel_port" -le 65535 ]; then
             break
@@ -991,7 +991,7 @@ kharej_server_configuration() {
 	local web_port=""
 	while true; do
 	    echo -ne "[-] Enter Web Port (default 0 to disable): "
-	    web_port=6002
+	    web_port=602
 
         if [[ -z "$web_port" ]]; then
             web_port=0
