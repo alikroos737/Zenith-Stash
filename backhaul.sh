@@ -267,7 +267,7 @@ configure_tunnel() {
 # check if the Backhaul-core installed or not
 if [[ ! -d "$config_dir" ]]; then
     echo -e "\n${RED}Backhaul-Core directory not found. Install it first through 'Install Backhaul core' option.${NC}\n"
-    read -p "Press Enter to continue..."
+    
     return 1
 fi
 
@@ -284,7 +284,6 @@ fi
         *) echo -e "${RED}Invalid option!${NC}" && sleep 1 ;;
     esac
     echo
-    read -p "Press Enter to continue..."
 }
 
 #Global Variables
