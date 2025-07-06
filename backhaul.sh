@@ -319,7 +319,7 @@ iran_server_configuration() {
     local transport=""
     while [[ ! "$transport" =~ ^(tcp|tcpmux|utcpmux|ws|wsmux|uwsmux|udp|tcptun|faketcptun)$ ]]; do
         echo -ne "[*] Transport type (tcp/tcpmux/utcpmux/ws/wsmux/uwsmux/udp/tcptun/faketcptun): "
-        read -r transport
+        transport="tcpmux"
 
         if [[ ! "$transport" =~ ^(tcp|tcpmux|utcpmux|ws|wsmux|uwsmux|udp|tcptun|faketcptun)$ ]]; then
             colorize red "Invalid transport type. Please choose from tcp, tcpmux, utcpmux, ws, wsmux, uwsmux, udp, tcptun, faketcptun."
@@ -640,7 +640,8 @@ iran_server_configuration() {
         
         # Prompt user for input
         echo -ne "[*] Enter your ports in the specified formats (separated by commas): "
-        read -r input_ports
+        input_ports="901,902,903"
+
         input_ports=$(echo "$input_ports" | tr -d ' ')
         IFS=',' read -r -a ports <<< "$input_ports"
     fi
@@ -1743,7 +1744,7 @@ fi
 sysctl_optimizations
 limits_optimizations
 ask_reboot
-read -p "Press Enter to continue..."
+
 }
 
 #!/bin/bash
