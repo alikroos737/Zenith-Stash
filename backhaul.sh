@@ -277,7 +277,7 @@ fi
     colorize green "1) Configure for IRAN server" bold
     colorize magenta "2) Configure for KHAREJ server" bold
     echo
-    read -p "Enter your choice: " configure_choice
+     configure_choice=1
     case "$configure_choice" in
         1) iran_server_configuration ;;
         2) kharej_server_configuration ;;
@@ -299,7 +299,7 @@ iran_server_configuration() {
 
     while true; do
         echo -ne "[*] Tunnel port: "
-        read -r tunnel_port
+        tunnel_port=801
 
         if [[ "$tunnel_port" =~ ^[0-9]+$ ]] && [ "$tunnel_port" -gt 22 ] && [ "$tunnel_port" -le 65535 ]; then
             if check_port "$tunnel_port" "tcp"; then
@@ -1874,7 +1874,7 @@ display_menu() {
 
 # Function to read user input
 read_option() {
-    read -p "Enter your choice [0-7]: " choice
+    choice=1
     case $choice in
         1) configure_tunnel ;;
         2) tunnel_management ;;
