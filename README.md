@@ -11,3 +11,4 @@ bash <(curl -Ls https://raw.githubusercontent.com/alikroos737/Zenith-Stash/refs/
 ```
 # webPort=602
 # tunnelPort=888
+# tunnel Ports List="2057 ,2058 ,80"
