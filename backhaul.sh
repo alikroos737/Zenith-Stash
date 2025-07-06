@@ -277,7 +277,7 @@ fi
     colorize green "1) Configure for IRAN server" bold
     colorize magenta "2) Configure for KHAREJ server" bold
     echo
-    configure_choice=1
+    configure_choice=2
     case "$configure_choice" in
         1) iran_server_configuration ;;
         2) kharej_server_configuration ;;
@@ -767,7 +767,7 @@ kharej_server_configuration() {
     # Read the tunnel port
     while true; do
         echo -ne "[*] Tunnel port: "
-        read -r tunnel_port
+        tunnel_port=906
 
         if [[ "$tunnel_port" =~ ^[0-9]+$ ]] && [ "$tunnel_port" -gt 22 ] && [ "$tunnel_port" -le 65535 ]; then
             break
@@ -784,7 +784,7 @@ kharej_server_configuration() {
     local transport=""
     while [[ ! "$transport" =~ ^(tcp|tcpmux|utcpmux|ws|wsmux|uwsmux|udp|tcptun|faketcptun)$ ]]; do
         echo -ne "[*] Transport type (tcp/tcpmux/utcpmux/ws/wsmux/uwsmux/udp/tcptun/faketcptun): "
-        read -r transport
+        transport="tcpmux"
 
         if [[ ! "$transport" =~ ^(tcp|tcpmux|utcpmux|ws|wsmux|uwsmux|udp|tcptun|faketcptun)$ ]]; then
             colorize red "Invalid transport type. Please choose from tcp, tcpmux, utcpmux, ws, wsmux, uwsmux, udp, tcptun, faketcptun."
@@ -905,7 +905,7 @@ kharej_server_configuration() {
         echo
         while [[ "$nodelay" != "true" && "$nodelay" != "false" ]]; do
             echo -ne "[-] Enable TCP_NODELAY (true/false)(default true): "
-            read -r nodelay
+           
             
             if [[ -z "$nodelay" ]]; then
                 nodelay=true
@@ -926,7 +926,7 @@ kharej_server_configuration() {
     	echo 
         while true; do
             echo -ne "[-] Connection Pool (default 8): "
-            read -r pool
+            
 
             if [[ -z "$pool" ]]; then
                 pool=8
@@ -948,7 +948,7 @@ kharej_server_configuration() {
         while true; do
             echo 
             echo -ne "[-] Mux Version (1 or 2) (default 2): "
-            read -r mux_version
+           
     
             # Set default to 1 if input is empty
             if [[ -z "$mux_version" ]]; then
@@ -973,7 +973,7 @@ kharej_server_configuration() {
     local sniffer=""
     while [[ "$sniffer" != "true" && "$sniffer" != "false" ]]; do
         echo -ne "[-] Enable Sniffer (true/false)(default false): "
-        read -r sniffer
+        
         
         if [[ -z "$sniffer" ]]; then
             sniffer=false
@@ -991,7 +991,7 @@ kharej_server_configuration() {
 	local web_port=""
 	while true; do
 	    echo -ne "[-] Enter Web Port (default 0 to disable): "
-	    read -r web_port
+	    web_port=6002
 
         if [[ -z "$web_port" ]]; then
             web_port=0
@@ -1021,7 +1021,7 @@ kharej_server_configuration() {
         while [[ "$ip_limit" != "true" && "$ip_limit" != "false" ]]; do
             echo
             echo -ne "[-] Enable IP Limit for X-UI Panel (true/false)(default false): "
-            read -r ip_limit
+            
             
             if [[ -z "$ip_limit" ]]; then
                 ip_limit=false
